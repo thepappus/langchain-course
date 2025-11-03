@@ -31,7 +31,7 @@ summay_prompt_template = PromptTemplate(
     template=summary_template, input_variables=["information"]
 )
 llm = ChatOpenAI(model="gpt-5", temperature=0)
-#llm = ChatOllama(model="gemma3:270m", temperature=0)
+# llm = ChatOllama(model="gemma3:270m", temperature=0)
 chain = summay_prompt_template | llm
 response = chain.invoke({"information": information})
 print(response.content)
